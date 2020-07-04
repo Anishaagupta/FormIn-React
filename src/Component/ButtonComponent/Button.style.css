@@ -1,0 +1,14 @@
+button {
+  margin-top: 10px;
+  margin-left: 60px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border: 3px solid rgb(245, 239, 239);
+  cursor: pointer;
+  background: transparent;
+  color: aliceblue;
+}
+button:hover{
+  background-color: rgb(170, 189, 209);
+}
