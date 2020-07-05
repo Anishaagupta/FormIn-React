@@ -16,7 +16,7 @@ const validForm = ({ err, ...rest }) => {
 
   // validate the form was filled out
   Object.values(rest).forEach(val => {
-    val === null || (valid = false);
+    val === null && (valid = false);
   });
 
   return valid;
