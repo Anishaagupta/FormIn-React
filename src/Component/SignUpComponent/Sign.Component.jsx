@@ -78,6 +78,7 @@ class SignUp extends React.Component {
     this.setState({ err, [name]: value }, () => console.log(this.state));
   };
   handleSubmit = event => {
+    
     validForm(this.state)
       ? alert('Form is submitted successfully.')
       : alert('Some Errors Occurrred');
