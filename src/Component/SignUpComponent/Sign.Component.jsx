@@ -16,7 +16,7 @@ const validForm = ({ err, ...rest }) => {
 
   // validate the form was filled out
   Object.values(rest).forEach(val => {
-    val === null && (valid = false);
+    val === null || (valid = false);
   });
 
   return valid;
@@ -57,14 +57,20 @@ class SignUp extends React.Component {
 
     switch (name) {
       case 'username':
-        err.username = value.length < 3 ? 'Minimum 3 characaters required' : '';
+        err.username =
+          value.length < 3 && value.length > 20
+            ? 'Minimum 3 characaters and maximum 20 required'
+            : '';
         break;
 
       case 'email':
         err.email = emailRegex.test(value) ? '' : 'Invalid email address';
         break;
       case 'password':
-        err.password = value.length < 6 ? 'Minimum 6 characaters required' : '';
+        err.password =
+          value.length < 6 && value.length > 30
+            ? 'Minimum 6 characaters and maximum 30 required'
+            : '';
         break;
       default:
         break;
@@ -73,7 +79,7 @@ class SignUp extends React.Component {
   };
   handleSubmit = event => {
     validForm(this.state)
-      ? alert('Form is submitted.')
+      ? alert('Form is submitted successfully.')
       : alert('Some Errors Occurrred');
   };
 
